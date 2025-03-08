@@ -47,6 +47,8 @@ public class AuthentificationController {
         if (clientRepository.findByEmail(registerRequest.getEmail()).isPresent()) {
             return ResponseEntity.badRequest().body(new RegisterResponse("Erreur : L'email est déjà utilisé."));
         }
+        String ROLE=registerRequest.getRole();
+        String ROLED="ROLE_"+ROLE;
 
         // Crée un nouvel utilisateur
         Client client = new Client();
@@ -54,7 +56,7 @@ public class AuthentificationController {
         client.setEmail(registerRequest.getEmail());
         client.setPassword(passwordEncoder.encode(registerRequest.getPassword())); // Hash le mot de passe
         client.setAdresse(registerRequest.getAdresse());
-        client.setRole("CLIENT"); // Définit le rôle par défaut comme "CLIENT"
+        client.setRole(ROLED); // Définit le rôle par défaut comme "CLIENT"
 
         // Sauvegarde l'utilisateur dans la base de données
         clientRepository.save(client);

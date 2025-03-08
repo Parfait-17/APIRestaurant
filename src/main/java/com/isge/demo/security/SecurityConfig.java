@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .requestMatchers(
                     "/api/auth/**", // Authentification accessible
                     "/swagger-ui/**", // Swagger accessible
+                    " /swagger-ui.html/**",// Swagger accessible
                     "/v3/api-docs/**", // Documentation API accessible
                     "/h2-console/**", // Console H2 accessible
                     "/api/public/**", // Tout ce qui est sous /api/public est accessible

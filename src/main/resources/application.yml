@@ -33,6 +33,8 @@ spring:
 logging:
   level:
     org:
+      springframework:
+        security: DEBUG  # Ajout des logs détaillés pour Spring Security
       hibernate:
         SQL: DEBUG
         type:
